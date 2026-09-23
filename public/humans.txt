@@ -1,0 +1,6 @@
+/* HUMAN MADE */
+Site: Orin AI — https://orinai.org/
+Developer: Januth Nimnal — https://orinai.org/januth-nimnal
+Contact: via GitHub — https://github.com/januththedev
+Stack: Vite, React, Vercel, Neon Postgres, Cloud sandboxes
+Thanks for reading the source.

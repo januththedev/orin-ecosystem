@@ -1,0 +1,20 @@
+# Orin AI ecosystem — machine-readable summary for AI crawlers and assistants.
+# Canonical home: https://orinai.org/
+
+## Orin AI
+A unified ecosystem of free AI tools for developers, by developer Januth Nimnal.
+https://orinai.org/ — https://orinai.org/januth-nimnal
+
+## Products
+- Orin Chat — conversational AI assistant (Sinhala, Tamil, English): https://chat.orinai.org/
+- Orin Code — free AI coding workspace for Windows, plus CLI and VS Code extension: https://code.orinai.org/
+- Orin Agent — autonomous AI agent, self-hosted gateway: https://agent.orinai.org/
+- Orin Console — real Linux terminal in the browser, isolated sandboxes: https://console.orinai.org/
+- Orin Router — one OpenAI-compatible endpoint over many providers: https://router.orinai.org/
+- Orin MCP — Orin models inside Claude, Cursor and VS Code: https://mcp.orinai.org/
+- Orin Tools — free keyless search API and sandboxed code execution: https://tools.orinai.org/
+
+## Developer
+Januth Nimnal — developer and creator of Orin AI.
+Profile: https://orinai.org/januth-nimnal
+Code: https://github.com/januththedev — https://github.com/anomalyco
