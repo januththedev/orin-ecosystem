@@ -137,6 +137,22 @@ const PRODUCTS: Product[] = [
     feats: ['Search API', 'Code execution', 'Self-hosting', 'Open source', 'No keys', 'Unlimited free'],
     cta: 'Explore Orin Tools', href: 'https://tools.orinai.org', domain: 'tools.orinai.org',
     visual: <ToolsVisual />
+  },
+  {
+    index: '06', name: 'Orin MCP', short: 'MCP', accent: '#a78bfa',
+    statement: 'Orin models inside the tools you already use.',
+    desc: 'Scoped tokens connect Orin to Claude, Cursor and VS Code as tools. Least privilege, revocable, same quotas as the web app.',
+    feats: ['Claude + Cursor + VS Code', 'Scoped tokens', '4 tools + prompts', 'Revocable', 'Same quotas'],
+    cta: 'Connect Orin MCP', href: 'https://mcp.orinai.org', domain: 'mcp.orinai.org',
+    visual: <ToolsVisual />
+  },
+  {
+    index: '07', name: 'Orin Router', short: 'Router', accent: '#38bdf8',
+    statement: 'One OpenAI-compatible API over many providers.',
+    desc: 'Priority routing with failover, API keys, streaming and logs. Self-host from the public repo; point any OpenAI SDK at it.',
+    feats: ['OpenAI-compatible', 'Priority + failover', 'API keys', 'Streaming', 'Usage logs', 'Open source'],
+    cta: 'Explore Orin Router', href: 'https://github.com/januththedev/orin-router-service', domain: 'router.orinai.org',
+    visual: <AgentVisual />
   }
 ];
 
@@ -147,7 +163,7 @@ export function Products() {
         <Reveal>
           <div className="sec-head">
             <p className="kicker">The ecosystem</p>
-            <h2>Five tools.<br />One Orin.</h2>
+            <h2>Seven tools.<br />One Orin.</h2>
           </div>
         </Reveal>
         <Reveal>

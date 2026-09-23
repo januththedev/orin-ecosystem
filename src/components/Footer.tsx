@@ -17,6 +17,8 @@ export function Footer() {
               <a href="https://code.orinai.org">Orin Code</a>
               <a href="https://agent.orinai.org">Orin Agent</a>
               <a href="https://tools.orinai.org">Orin Tools</a>
+              <a href="https://mcp.orinai.org">Orin MCP</a>
+              <a href="https://github.com/januththedev/orin-router-service">Orin Router</a>
             </div>
             <div>
               <h4>Developers</h4>
@@ -35,7 +37,7 @@ export function Footer() {
         </div>
         <div className="f-base">
           <span>© 2026 Orin AI · Free forever · Made by <a href="https://januth.dev">Januth</a></span>
-          <span className="mono">chat · code · agent · tools</span>
+          <span className="mono">chat · code · agent · tools · mcp · router</span>
         </div>
       </div>
     </footer>

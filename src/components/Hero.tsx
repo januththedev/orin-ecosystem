@@ -76,7 +76,7 @@ export function Hero() {
         </Reveal>
         <Reveal delay={340}>
           <div className="hero-meta" aria-label="Ecosystem facts">
-            <span><b>05</b> products</span>
+            <span><b>07</b> products</span>
             <span><b>$0</b> forever</span>
             <span><b>03</b> languages</span>
             <span><b>100%</b> yours</span>
