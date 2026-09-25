@@ -1,20 +1,23 @@
-# Orin AI ecosystem — machine-readable summary for AI crawlers and assistants.
+# Orin AI ecosystem — machine-readable release map
 # Canonical home: https://orinai.org/
 
 ## Orin AI
-A unified ecosystem of free AI tools for developers, by developer Januth Nimnal.
+A unified ecosystem of free AI tools for developers, by Januth Nimnal.
 https://orinai.org/ — https://orinai.org/januth-nimnal
 
-## Products
-- Orin Chat — conversational AI assistant (Sinhala, Tamil, English): https://chat.orinai.org/
-- Orin Code — free AI coding workspace for Windows, plus CLI and VS Code extension: https://code.orinai.org/
-- Orin Agent — autonomous AI agent, self-hosted gateway: https://agent.orinai.org/
-- Orin Console — real Linux terminal in the browser, isolated sandboxes: https://console.orinai.org/
-- Orin Router — one OpenAI-compatible endpoint over many providers: https://router.orinai.org/
-- Orin MCP — Orin models inside Claude, Cursor and VS Code: https://mcp.orinai.org/
-- Orin Tools — free keyless search API and sandboxed code execution: https://tools.orinai.org/
+## Live products
+- Orin Chat — Core chat with English, Sinhala, Tamil, research, files, memory, voice, and media: https://chat.orinai.org/
+- Orin Code — Windows workspace, CLI, and VS Code extension with Core device auth and workspace-bound tools: https://code.orinai.org/
+- Orin Agent — self-hosted local gateway, tools, browser actions, sessions, approvals, and artifacts: https://agent.orinai.org/
+- Orin MCP — scoped hosted and stdio model access: https://mcp.orinai.org/
+- Orin Router — four canonical aliases, ordered failover, and authenticated provider-key management API: https://router.orinai.org/
+
+## Preview and gated products
+- Orin Console — isolated PTY sessions with replay and expiring ports: https://github.com/januththedev/orin-console
+- Orin Automations — local pipeline compiler, exact-hash approvals, safe runner, and Logseq notes: https://github.com/januththedev/orin-automations
+- Orin Tools — public and private search are live; public code execution remains disabled until an Orin-controlled sandbox passes review: https://tools.orinai.org/
 
 ## Developer
 Januth Nimnal — developer and creator of Orin AI.
 Profile: https://orinai.org/januth-nimnal
-Code: https://github.com/januththedev — https://github.com/anomalyco
+Code: https://github.com/januththedev
