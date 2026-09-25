@@ -151,8 +151,8 @@ const PRODUCTS: Product[] = [
   {
     index: '07', name: 'Orin Router', short: 'Router', accent: '#38bdf8',
     statement: 'One OpenAI-compatible API over many providers.',
-    desc: 'Priority routing with failover, API keys, streaming and logs. Self-host from the public repo; point any OpenAI SDK at it.',
-    feats: ['OpenAI-compatible', 'Priority + failover', 'API keys', 'Streaming', 'Usage logs', 'Open source'],
+    desc: 'Priority routing with failover, one revocable orin_... key, encrypted provider keys, streaming and logs. Self-host from the public repo; point any OpenAI SDK at it.',
+    feats: ['OpenAI-compatible', 'Priority + failover', 'One orin_... key', 'Encrypted provider keys', 'Streaming', 'Usage logs', 'Open source'],
     cta: 'Explore Orin Router', href: 'https://github.com/januththedev/orin-router-service', domain: 'router.orinai.org', status: 'live', statusLabel: 'Inference live · dashboard API',
     visual: <AgentVisual />
   },
