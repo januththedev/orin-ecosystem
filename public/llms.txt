@@ -10,7 +10,7 @@ https://orinai.org/ — https://orinai.org/januth-nimnal
 - Orin Code — Windows workspace, CLI, and VS Code extension with Core device auth and workspace-bound tools: https://code.orinai.org/
 - Orin Agent — self-hosted local gateway, tools, browser actions, sessions, approvals, and artifacts: https://agent.orinai.org/
 - Orin MCP — scoped hosted and stdio model access: https://mcp.orinai.org/
-- Orin Router — four canonical aliases, ordered failover, and authenticated provider-key management API: https://router.orinai.org/
+- Orin Router — four canonical aliases, ordered failover, one revocable `orin_...` client key, and encrypted provider-key management API: https://router.orinai.org/
 
 ## Preview and gated products
 - Orin Console — isolated PTY sessions with replay and expiring ports: https://github.com/januththedev/orin-console
