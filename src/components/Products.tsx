@@ -11,6 +11,8 @@ interface Product {
   cta: string;
   href: string;
   domain: string;
+  status: 'live' | 'preview' | 'planned';
+  statusLabel: string;
   visual: React.ReactNode;
   flip?: boolean;
 }
@@ -90,7 +92,7 @@ function ToolsVisual() {
       <div><span className="k">$</span> curl orin.tools/api/search?q=news</div>
       <div><span className="ok">✓ 200 · 5 results · 41ms · $0.00</span></div>
       <div><span className="k">$</span> orin run -l python main.py</div>
-      <div><span className="ok">✓ exit 0 · sandboxed · $0.00</span></div>
+      <div><span className="warn">⏸ execution gated · sandbox review pending</span></div>
       <div><span className="k">$</span> docker run searxng/searxng</div>
       <div><span className="ok">✓ your engine · layer one</span></div>
     </div>
@@ -103,7 +105,7 @@ const PRODUCTS: Product[] = [
     statement: 'Your AI workspace for thinking, researching, creating and getting things done.',
     desc: 'Conversational AI with web research, files, projects, memory and multimodal input — in English, Sinhala and Tamil. Free, fast, and yours.',
     feats: ['Conversational AI', 'Web research', 'Files & projects', 'Memory', 'Voice mode', 'Free forever'],
-    cta: 'Open Orin Chat', href: 'https://chat.orinai.org', domain: 'chat.orinai.org',
+    cta: 'Open Orin Chat', href: 'https://chat.orinai.org', domain: 'chat.orinai.org', status: 'live', statusLabel: 'Live',
     visual: <ChatVisual />
   },
   {
@@ -111,7 +113,7 @@ const PRODUCTS: Product[] = [
     statement: 'AI-native development for building real software.',
     desc: 'A code editor that understands your repo — AI coding, debugging, generation and agentic workflows, backed by free-tier models with live auto-routing.',
     feats: ['AI code editor', 'Repo understanding', 'Debugging', 'Generation', 'Agentic workflows', 'Terminal'],
-    cta: 'Explore Orin Code', href: 'https://code.orinai.org', domain: 'code.orinai.org',
+    cta: 'Explore Orin Code', href: 'https://code.orinai.org', domain: 'code.orinai.org', status: 'live', statusLabel: 'Live',
     visual: <CodeVisual />, flip: true
   },
   {
@@ -119,7 +121,7 @@ const PRODUCTS: Product[] = [
     statement: 'The developer integration layer — Orin inside your editor.',
     desc: 'Sidebar chat, inline assistance, coding agents and terminal workflows in VS Code. No Telegram, no noise — chat and code only.',
     feats: ['VS Code sidebar', 'Explain selection', 'Inline assistance', 'Deep reasoning', 'Secret storage auth'],
-    cta: 'Get the VS Code Extension', href: 'https://github.com/januththedev/orin-code-vscode', domain: 'github · orin-code-vscode',
+    cta: 'Get the VS Code Extension', href: 'https://github.com/januththedev/orin-code-vscode', domain: 'github · orin-code-vscode', status: 'live', statusLabel: 'Live',
     visual: <ExtVisual />
   },
   {
@@ -127,15 +129,15 @@ const PRODUCTS: Product[] = [
     statement: 'AI that doesn’t just answer. It acts.',
     desc: 'Planning, tool use, multi-step execution, browser interaction and automation. Wake word, glass overlay, pets — a complete assistant, not a chatbot.',
     feats: ['Planning', 'Tool use', 'Multi-step execution', 'Wake word', 'Glass mode', 'Cron automations'],
-    cta: 'Explore Orin Agent', href: 'https://agent.orinai.org', domain: 'agent.orinai.org',
+    cta: 'Explore Orin Agent', href: 'https://agent.orinai.org', domain: 'agent.orinai.org', status: 'live', statusLabel: 'Live',
     visual: <AgentVisual />, flip: true
   },
   {
     index: '05', name: 'Orin Tools', short: 'Tools', accent: '#e7e5e4',
     statement: 'Open infrastructure for running AI tooling yourself.',
-    desc: 'Free keyless web search API and sandboxed code execution. Self-host with SearXNG, deploy anywhere, unlimited for life. Public repo, production docs.',
-    feats: ['Search API', 'Code execution', 'Self-hosting', 'Open source', 'No keys', 'Unlimited free'],
-    cta: 'Explore Orin Tools', href: 'https://tools.orinai.org', domain: 'tools.orinai.org',
+    desc: 'Free keyless web search API with a private no-store route for Orin products. Public code execution stays disabled until an Orin-controlled sandbox passes security review.',
+    feats: ['Search API', 'Private no-store search', 'Self-hosting', 'Open source', 'No keys'],
+    cta: 'Explore Orin Tools', href: 'https://tools.orinai.org', domain: 'tools.orinai.org', status: 'live', statusLabel: 'Search live · run gated',
     visual: <ToolsVisual />
   },
   {
@@ -143,7 +145,7 @@ const PRODUCTS: Product[] = [
     statement: 'Orin models inside the tools you already use.',
     desc: 'Scoped tokens connect Orin to Claude, Cursor and VS Code as tools. Least privilege, revocable, same quotas as the web app.',
     feats: ['Claude + Cursor + VS Code', 'Scoped tokens', '4 tools + prompts', 'Revocable', 'Same quotas'],
-    cta: 'Connect Orin MCP', href: 'https://mcp.orinai.org', domain: 'mcp.orinai.org',
+    cta: 'Connect Orin MCP', href: 'https://mcp.orinai.org', domain: 'mcp.orinai.org', status: 'live', statusLabel: 'Live',
     visual: <ToolsVisual />
   },
   {
@@ -151,8 +153,32 @@ const PRODUCTS: Product[] = [
     statement: 'One OpenAI-compatible API over many providers.',
     desc: 'Priority routing with failover, API keys, streaming and logs. Self-host from the public repo; point any OpenAI SDK at it.',
     feats: ['OpenAI-compatible', 'Priority + failover', 'API keys', 'Streaming', 'Usage logs', 'Open source'],
-    cta: 'Explore Orin Router', href: 'https://github.com/januththedev/orin-router-service', domain: 'router.orinai.org',
+    cta: 'Explore Orin Router', href: 'https://github.com/januththedev/orin-router-service', domain: 'router.orinai.org', status: 'live', statusLabel: 'Inference live · dashboard API',
     visual: <AgentVisual />
+  },
+  {
+    index: '08', name: 'Orin Console', short: 'Console', accent: '#fb923c',
+    statement: 'A real Linux terminal with a safe browser surface.',
+    desc: 'Isolated sessions, ANSI-preserving streams, replayable history, resizing, exit state, and expiring public ports.',
+    feats: ['PTY stream', 'Replay', 'Resize', '24-hour expiry', 'Account scoped'],
+    cta: 'Explore Orin Console', href: 'https://github.com/januththedev/orin-console', domain: 'github · orin-console', status: 'preview', statusLabel: 'Preview',
+    visual: <CodeVisual />, flip: true
+  },
+  {
+    index: '09', name: 'Orin Automations', short: 'Automations', accent: '#f472b6',
+    statement: 'Describe the output. Review the system.',
+    desc: 'Compile input/output requests into immutable manifests, exact-hash approvals, safe local runs, and Logseq-compatible Markdown.',
+    feats: ['Pipeline compiler', 'Exact-hash approval', 'Safe local runner', 'Logseq notes'],
+    cta: 'Explore Orin Automations', href: 'https://github.com/januththedev/orin-automations', domain: 'github · orin-automations', status: 'preview', statusLabel: 'Local preview',
+    visual: <ToolsVisual />
+  },
+  {
+    index: '10', name: 'Orin Ecosystem', short: 'Ecosystem', accent: '#e2e8f0',
+    statement: 'The shared surface for the Orin family.',
+    desc: 'One account, one design language, one release map — with every capability labeled by its actual gate status.',
+    feats: ['Shared contracts', 'Release map', 'Creator profile', 'Open source'],
+    cta: 'View the ecosystem', href: 'https://orinai.org', domain: 'orinai.org', status: 'live', statusLabel: 'Live',
+    visual: <AgentVisual />, flip: true
   }
 ];
 
@@ -163,7 +189,7 @@ export function Products() {
         <Reveal>
           <div className="sec-head">
             <p className="kicker">The ecosystem</p>
-            <h2>Seven tools.<br />One Orin.</h2>
+            <h2>Ten tools.<br />One Orin.</h2>
           </div>
         </Reveal>
         <Reveal>
@@ -182,6 +208,7 @@ export function Products() {
             <Reveal>
               <div className="p-copy">
                 <span className="p-index">PRODUCT {p.index}</span>
+                <span className={`status-badge ${p.status}`}>{p.statusLabel}</span>
                 <h3 className="p-name">{p.short}<span className="dot-accent">.</span></h3>
                 <p className="p-state">{p.statement}</p>
                 <p className="p-desc">{p.desc}</p>
