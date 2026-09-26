@@ -1,21 +1,39 @@
-# Orin AI ecosystem — machine-readable release map
+# Orin AI ecosystem — machine-readable product and routing map
 # Canonical home: https://orinai.org/
+#
+# orinai.org is the front door to the routing service, not a brochure. The
+# router at router.orinai.org answers every model request the family makes.
 
 ## Orin AI
 A unified ecosystem of free AI tools for developers, by Januth Nimnal.
 https://orinai.org/ — https://orinai.org/januth-nimnal
+
+## Routing service
+Orin Router — one OpenAI-compatible API over many providers, self-hostable.
+- Inference: https://router.orinai.org/v1/chat/completions
+- Models: https://router.orinai.org/v1/models
+- Health: https://router.orinai.org/health
+- Free models only: every routable model id ends in `:free`, and the four
+  aliases (orin-cheap, orin-balanced, orin-thinking, orin-coding) resolve only
+  within that tier.
+- Bring your own key: an account can store its own OpenRouter, DeepSeek, Groq
+  or OpenAI credential, and that key is preferred over any platform key.
 
 ## Live products
 - Orin Chat — Core chat with English, Sinhala, Tamil, research, files, memory, voice, and media: https://chat.orinai.org/
 - Orin Code — Windows workspace, CLI, and VS Code extension with Core device auth and workspace-bound tools: https://code.orinai.org/
 - Orin Agent — self-hosted local gateway, tools, browser actions, sessions, approvals, and artifacts: https://agent.orinai.org/
 - Orin MCP — scoped hosted and stdio model access: https://mcp.orinai.org/
-- Orin Router — four canonical aliases, ordered failover, one revocable `orin_...` client key, and encrypted provider-key management API: https://router.orinai.org/
+- Orin Tools — keyless web search is live; public code execution remains disabled until an Orin-controlled sandbox passes review: https://tools.orinai.org/
 
-## Preview and gated products
-- Orin Console — isolated PTY sessions with replay and expiring ports: https://github.com/januththedev/orin-console
-- Orin Automations — local pipeline compiler, exact-hash approvals, safe runner, and Logseq notes: https://github.com/januththedev/orin-automations
-- Orin Tools — public and private search are live; public code execution remains disabled until an Orin-controlled sandbox passes review: https://tools.orinai.org/
+## Preview products
+- Orin Console — isolated PTY sessions with replay, no login, and an 8-hour expiry: https://console.orinai.org/
+- Orin Automations — local pipeline compiler, exact-hash approvals, safe runner, and Logseq notes: https://automate.orinai.org/
+
+## Accounts
+Chat, Code, Agent, Router and MCP require an Orin account. Console, Tools and
+Automations do not. Bring-your-own-key credentials are stored against the
+account, so they follow the user across devices.
 
 ## Developer
 Januth Nimnal — developer and creator of Orin AI.

@@ -1,5 +1,6 @@
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
+import { RouterStatus } from './components/RouterStatus';
 import { Products } from './components/Products';
 import { SelfHost } from './components/SelfHost';
 import { Footer } from './components/Footer';
@@ -18,6 +19,7 @@ export default function App() {
             <span><b>$0</b> forever</span><span>chat · code · agent · tools</span><span>no keys</span><span>self-hostable</span><span>open source</span>
           </div>
         </div>
+        <RouterStatus />
         <Products />
         <SelfHost />
       </main>

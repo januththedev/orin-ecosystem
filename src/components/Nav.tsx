@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
+import { hrefFor, productByShort } from '../products';
 
-const LINKS = [
-  { href: 'https://chat.orinai.org', label: 'Orin Chat' },
-  { href: 'https://code.orinai.org', label: 'Orin Code' },
-  { href: 'https://agent.orinai.org', label: 'Orin Agent' },
-  { href: 'https://tools.orinai.org', label: 'Orin Tools' }
-];
+const LINKS = ['Chat', 'Code', 'Agent', 'Tools', 'Router']
+  .map((short) => productByShort(short))
+  .filter((product): product is NonNullable<typeof product> => Boolean(product))
+  .map((product) => ({ href: hrefFor(product), label: product.name }));
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,7 +36,7 @@ export function Nav() {
             {LINKS.map((l) => (
               <a key={l.href} href={l.href}>{l.label}</a>
             ))}
-            <a className="nav-cta" href="https://chat.orinai.org">Get Started</a>
+            <a className="nav-cta" href={LINKS[0]?.href ?? 'https://orinai.org'}>Get Started</a>
           </div>
           <button className="menu-btn" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}>
             Menu
