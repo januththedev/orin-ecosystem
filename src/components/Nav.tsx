@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { hrefFor, productByShort } from '../products';
+import { hrefFor, productByShort, signinUrl } from '../products';
 
 const LINKS = ['Chat', 'Code', 'Agent', 'Tools', 'Router']
   .map((short) => productByShort(short))
@@ -36,7 +36,10 @@ export function Nav() {
             {LINKS.map((l) => (
               <a key={l.href} href={l.href}>{l.label}</a>
             ))}
-            <a className="nav-cta" href={LINKS[0]?.href ?? 'https://orinai.org'}>Get Started</a>
+            <a
+              className="nav-cta"
+              href={LINKS[0] ? signinUrl(LINKS[0].href) : 'https://orinai.org/signin'}
+            >Get Started</a>
           </div>
           <button className="menu-btn" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}>
             Menu
