@@ -1,4 +1,5 @@
 import { Reveal } from './Reveal';
+import { hrefFor, productByShort } from '../products';
 
 interface Product {
   index: string;
@@ -160,7 +161,7 @@ const PRODUCTS: Product[] = [
     index: '08', name: 'Orin Console', short: 'Console', accent: '#fb923c',
     statement: 'A real Linux terminal with a safe browser surface.',
     desc: 'Isolated sessions, ANSI-preserving streams, replayable history, resizing, exit state, and expiring public ports.',
-    feats: ['PTY stream', 'Replay', 'Resize', '24-hour expiry', 'Account scoped'],
+    feats: ['PTY stream', 'Replay', 'Resize', '8-hour expiry', 'No login'],
     cta: 'Explore Orin Console', href: 'https://github.com/januththedev/orin-console', domain: 'github · orin-console', status: 'preview', statusLabel: 'Preview',
     visual: <CodeVisual />, flip: true
   },
@@ -182,6 +183,23 @@ const PRODUCTS: Product[] = [
   }
 ];
 
+/**
+ * Hostnames live in one place (src/products.ts). Anything the map knows about
+ * gets its href, domain and status overwritten here, so a card can never drift
+ * away from where that product is actually deployed.
+ */
+const RESOLVED: Product[] = PRODUCTS.map((product) => {
+  const canonical = productByShort(product.short);
+  if (!canonical) return product;
+  return {
+    ...product,
+    href: hrefFor(canonical),
+    domain: canonical.host,
+    status: canonical.status,
+    statusLabel: canonical.statusLabel,
+  };
+});
+
 export function Products() {
   return (
     <section className="block" id="products" aria-label="Orin products">
@@ -198,7 +216,7 @@ export function Products() {
             together they cover thinking, building, acting and infrastructure.
           </p>
         </Reveal>
-        {PRODUCTS.map((p) => (
+        {RESOLVED.map((p) => (
           <article
             key={p.name}
             className={`product${p.flip ? ' flip' : ''}`}
