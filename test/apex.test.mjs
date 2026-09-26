@@ -107,3 +107,14 @@ test('the hub really calls the router, and the products page links to real hosts
   const nav = await readFile(new URL('../src/components/Nav.tsx', import.meta.url), 'utf8');
   assert.ok(!nav.includes('https://chat.orinai.org'), 'nav must read hosts from the canonical map');
 });
+
+test('sign-in links point at orinai.org and only accept Orin return targets', async () => {
+  const { signinUrl, SIGNIN_URL } = await import('../src/products.ts');
+  assert.equal(SIGNIN_URL, 'https://orinai.org/signin');
+  assert.equal(signinUrl('https://code.orinai.org/'), 'https://orinai.org/signin?return_to=https%3A%2F%2Fcode.orinai.org%2F');
+  // A non-Orin return target is dropped rather than forwarded, so the sign-in
+  // page is never turned into an open redirect by a crafted link.
+  for (const hostile of ['https://evil.example/', 'https://code.orinai.org.evil.example/', 'javascript:alert(1)', 'not a url', 'http://code.orinai.org/']) {
+    assert.equal(signinUrl(hostile), SIGNIN_URL, hostile);
+  }
+});

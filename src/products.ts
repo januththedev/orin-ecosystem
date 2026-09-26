@@ -29,6 +29,27 @@ export interface ProductLink {
 
 export const APEX = 'orinai.org';
 
+/** Where a person signs in. One account works across every Orin product. */
+export const SIGNIN_URL = 'https://orinai.org/signin';
+
+/**
+ * Build a sign-in link that returns the visitor to where they started.
+ *
+ * A return target is only ever built for an Orin origin; anything else is
+ * dropped, so a crafted hub link cannot turn the sign-in page into an open
+ * redirect. The sign-in page re-checks this independently.
+ */
+export function signinUrl(returnTo: string): string {
+  try {
+    const url = new URL(returnTo);
+    const isOrin = url.hostname === APEX || url.hostname.endsWith(`.${APEX}`);
+    if (url.protocol !== 'https:' || !isOrin) return SIGNIN_URL;
+    return `${SIGNIN_URL}?return_to=${encodeURIComponent(url.toString())}`;
+  } catch {
+    return SIGNIN_URL;
+  }
+}
+
 export const PRODUCTS: readonly ProductLink[] = [
   {
     name: 'Orin Chat',
